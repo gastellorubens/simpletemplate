@@ -1,8 +1,10 @@
+const path = require(`path`)
+
 const domen = "https://mydomain.net"
 
 
 module.exports = {
-    siteMetadata:{
+    siteMetadata: {
         siteUrl: getSiteUrl()
     },
     plugins: [
@@ -19,6 +21,15 @@ module.exports = {
                 icon: `src/icons/icon32.png`
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: path.join(__dirname, `src`, `images`),
+            },
+        },
+        `gatsby-plugin-sharp`,
+        `gatsby-transformer-sharp`,
         `gatsby-plugin-remove-trailing-slashes`,
         `gatsby-plugin-sitemap`
     ]
@@ -56,6 +67,6 @@ function addSCSSPlugin() {
     //includePaths: ["./src/styles"],
     //data: "@import \"custom.scss\";"
 }
-function getSiteUrl(){
+function getSiteUrl() {
     return domen;
 }

@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import "react-hot-loader"
 
 export default function HTML(props) {
   return (
